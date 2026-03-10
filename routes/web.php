@@ -33,6 +33,4 @@ Route::prefix('karyawan')->name('karyawan.')->group(function () {
 Route::get('/absensi', fn() => view('absensi.index'))->name('absensi.index');
 
 // Laporan
-Route::get('/laporan', fn() => view('laporan.index'))->name('laporan.index'); 
-
-Route::get('/welcome', fn() => view('welcome'))->name('welcome'); 
+Route::get('/laporan', fn() => view('laporan.index'))->name('laporan.index');

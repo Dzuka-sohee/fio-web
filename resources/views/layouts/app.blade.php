@@ -131,7 +131,7 @@
       flex: 1;
       overflow-y: auto;
       overflow-x: visible;
-      padding: 8px 7px;
+      padding: 8px 16px;
       scrollbar-width: none;
     }
 
@@ -1606,7 +1606,7 @@
           <a href="#" class="nav-sub-item">Daftar Karyawan</a>
           <a href="#" class="nav-sub-item">Pengguna App Karyawan</a>
           <a href="{{ route('karyawan.kkbk') }}" class="nav-sub-item">Karyawan Kerja di Beberapa Kantor</a>
-          <a href="#" class="nav-sub-item">Karyawan Kerja di Beberapa Kantor sebagai Admin Perangkat Absensi</a>
+          <a href="{{ route('karyawan.kkbkapa') }}" class="nav-sub-item">Karyawan Kerja di Beberapa Kantor sebagai Admin Perangkat Absensi</a>
           <a href="#" class="nav-sub-item">Absensi Tidak Ditampilkan</a>
           <a href="#" class="nav-sub-item">Karyawan Resign</a>
         </div>
