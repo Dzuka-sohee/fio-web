@@ -352,6 +352,57 @@ body {
   .show-entries select { font-size: 14px; }
   .btn-add { font-size: 12px; padding: 7px 12px; }
 }
+
+@media (max-width: 375px) {
+  /* Breadcrumb & tombol */
+  .breadcrumb-bar { flex-direction: column; align-items: flex-start; gap: 6px; padding: 8px 0 10px 0; }
+  .breadcrumb-text { font-size: 10px; letter-spacing: 0.02em; }
+  .btn-add { font-size: 10px; padding: 5px 8px; gap: 4px; }
+  .btn-add i { font-size: 12px; }
+  .btn-fav { width: 28px; height: 28px; font-size: 13px; }
+
+  /* Top bar */
+  .top-bar { padding: 10px 12px; gap: 6px; }
+  .show-entries { font-size: 11px; gap: 4px; }
+  .show-entries select { font-size: 11px; padding: 4px 6px; }
+  .search-bar { font-size: 11px; gap: 4px; }
+  .search-bar input { font-size: 11px; padding: 5px 8px; width: 100px; }
+
+  /* Tabel header */
+  .data-table { font-size: 11px; }
+  .data-table thead th { padding: 8px 6px; font-size: 10px; letter-spacing: 0.02em; }
+  .data-table thead th:nth-child(5),
+  .data-table tbody td:nth-child(5),
+  .data-table thead th:nth-child(6),
+  .data-table tbody td:nth-child(6) { display: none; }
+
+  /* Tabel body */
+  .data-table tbody td { padding: 8px 6px; font-size: 11px; }
+  .data-table th:first-child,
+  .data-table td:first-child { width: 28px; padding-left: 6px; padding-right: 4px; }
+  .data-table input[type="checkbox"] { width: 13px; height: 13px; }
+
+  /* Avatar */
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) { width: 40px; padding-left: 4px; padding-right: 4px; }
+  .avatar-wrap { width: 32px; height: 32px; }
+  .avatar-wrap img { width: 32px; height: 32px; }
+  .avatar-fallback { width: 32px; height: 32px; font-size: 13px; }
+
+  /* ID & Nama */
+  .data-table td:nth-child(3) { font-size: 11px; min-width: 55px; }
+  .data-table td:nth-child(4) span { font-size: 11px; }
+
+  /* Badge */
+  .badge { font-size: 10px; padding: 3px 6px; gap: 3px; }
+  .badge i { font-size: 10px; }
+  .kantor-lainnya { gap: 4px; min-width: 0; }
+
+  /* Bottom bar */
+  .bottom-bar { padding: 10px 12px; gap: 6px; }
+  .entries-info { font-size: 11px; }
+  .pg-btn { min-width: 28px; height: 28px; font-size: 12px; padding: 0 6px; }
+}
 </style>
 
 <!-- ──── BREADCRUMB ──── -->

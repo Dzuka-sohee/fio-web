@@ -164,7 +164,7 @@
       color: var(--sb-text);
       text-decoration: none;
       font-weight: 500;
-      font-size: 15.5px;
+      font-size: 16.5px;
       transition: all .15s;
       white-space: nowrap;
       cursor: pointer;
@@ -331,7 +331,9 @@
     }
 
     .setting-flyout-item {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       padding: 10px 16px;
       color: rgba(255, 255, 255, .92);
       text-decoration: none;
@@ -339,6 +341,12 @@
       font-weight: 600;
       border-bottom: 1px solid rgba(255, 255, 255, .1);
       transition: background .15s;
+    }
+
+    .setting-flyout-item i {
+      font-size: 15px;
+      flex-shrink: 0;
+      opacity: .85;
     }
 
     .setting-flyout-item:hover {
@@ -477,7 +485,7 @@
     }
 
     /* Mobile sidebar = blue, show icon row instead of full badges */
-    /* ── LARGE DESKTOP (≥1600px / 1920px): nav-sub-item lebih besar ── */
+    /* ── LARGE DESKTOP (≥1600px / 1920px): nav-sub-item & setting-flyout lebih besar ── */
     @media (min-width:1600px) {
       .nav-sub-item {
         padding: 15px 28px;
@@ -491,6 +499,25 @@
 
       .nav-submenu {
         width: 290px;
+      }
+
+      .setting-flyout {
+        width: 290px;
+      }
+
+      .setting-flyout-title {
+        font-size: 14.5px;
+        padding: 17px 24px 12px;
+      }
+
+      .setting-flyout-item {
+        font-size: 16.5px;
+        padding: 15px 24px;
+        gap: 13px;
+      }
+
+      .setting-flyout-item i {
+        font-size: 20px;
       }
     }
 
@@ -609,7 +636,7 @@
       }
 
       .topbar {
-        left: var(--sidebar-collapsed) !important;
+        /* position relative, tidak perlu left */
       }
 
       /* Flyout submenu: posisi dari collapsed sidebar */
@@ -641,6 +668,26 @@
       .nav-sub-item {
         padding: 13px 22px;
         font-size: 14px;
+      }
+
+      /* setting-flyout lebih besar di 768px tablet */
+      .setting-flyout {
+        width: 265px;
+      }
+
+      .setting-flyout-title {
+        font-size: 13px;
+        padding: 15px 20px 10px;
+      }
+
+      .setting-flyout-item {
+        font-size: 15px;
+        padding: 13px 20px;
+        gap: 12px;
+      }
+
+      .setting-flyout-item i {
+        font-size: 18px;
       }
     }
 
@@ -700,7 +747,7 @@
       }
 
       .topbar {
-        left: 0 !important;
+        /* position relative, tidak perlu left */
       }
 
       /* ── Mobile: submenu jadi dropdown inline ── */
@@ -765,24 +812,150 @@
       }
     }
 
+    /* ── 375px: perkecil icon topbar ── */
+    @media (max-width: 375px) {
+      .topbar {
+        padding: 0 10px;
+        gap: 4px;
+        height: 52px;
+      }
+
+      .btn-toggle {
+        width: 26px;
+        height: 26px;
+        font-size: 15px;
+      }
+
+      .topbar-right {
+        gap: 3px;
+      }
+
+      .tb-balance {
+        height: 32px;
+        padding: 0 8px;
+        font-size: 11px;
+        border-radius: 6px;
+      }
+
+      .tb-balance i {
+        font-size: 15px;
+      }
+
+      .tb-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 17px;
+        border-radius: 6px;
+      }
+
+      .tb-lang {
+        padding: 0 4px;
+        min-width: 24px;
+      }
+
+      .tb-lang img {
+        width: 16px !important;
+        height: 11px !important;
+      }
+
+      .tb-btn .notif-count {
+        font-size: 8px;
+        min-width: 12px;
+        height: 12px;
+        top: 2px;
+        right: 2px;
+      }
+
+      .tb-divider {
+        height: 16px;
+      }
+    }
+
+    /* ── 375px: perkecil sidebar mobile ── */
+    @media (max-width: 375px) {
+      .sidebar {
+        width: 240px !important;
+      }
+
+      /* Brand area lebih kompak */
+      .sidebar-brand {
+        padding: 11px 10px;
+        gap: 5px;
+      }
+
+      .brand-icon-wrap {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        border-radius: 6px;
+      }
+
+      .brand-title {
+        font-size: 10px;
+      }
+
+      .brand-sub {
+        font-size: 9px;
+      }
+
+      /* Nav */
+      .sidebar-nav {
+        padding: 6px 10px;
+      }
+
+      .nav-section-label {
+        font-size: 8.5px;
+        padding: 8px 6px 3px;
+      }
+
+      .nav-item {
+        font-size: 13.5px;
+        padding: 7px 7px;
+        gap: 7px;
+        margin-bottom: 4px;
+      }
+
+      .nav-icon {
+        font-size: 16px;
+        width: 18px;
+      }
+
+      /* Submenu inline lebih kecil */
+      .nav-sub-item {
+        padding: 8px 12px 8px 36px;
+        font-size: 11.5px;
+      }
+
+      /* Download section lebih kompak */
+      .sidebar-dl {
+        padding: 3px 8px 10px;
+      }
+
+      .dl-title {
+        font-size: 8.5px;
+        margin-bottom: 5px;
+      }
+
+      .dl-icon-btn img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
     /* ── TOPBAR ── */
     .topbar {
-      position: fixed;
-      top: 0;
-      left: var(--sidebar-width);
-      right: 0;
+      position: relative;
       height: var(--topbar-height);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       padding: 0 18px;
       gap: 9px;
-      z-index: 900;
-      transition: left .25s ease;
+      background: #f0f2f5;
     }
 
     .sidebar.collapsed~.main-wrapper .topbar {
-      left: var(--sidebar-collapsed);
+      /* tidak perlu left adjustment karena relative */
     }
 
     .btn-toggle {
@@ -911,6 +1084,8 @@
     .main-wrapper {
       margin-left: var(--sidebar-width);
       flex: 1;
+      display: flex;
+      flex-direction: column;
       transition: margin-left .25s ease;
       min-width: 0;
       overflow-x: hidden;
@@ -921,7 +1096,7 @@
     }
 
     .main-content {
-      padding: calc(var(--topbar-height) + 16px) 18px 20px;
+      padding: 16px 18px 20px;
       overflow-x: hidden;
       box-sizing: border-box;
     }
@@ -1527,7 +1702,7 @@
       }
 
       .main-content {
-        padding: calc(var(--topbar-height) + 12px) 12px 16px;
+        padding: 12px 12px 16px;
       }
 
       .topbar {
@@ -1550,7 +1725,7 @@
       }
 
       .main-content {
-        padding: calc(var(--topbar-height) + 10px) 10px 14px;
+        padding: 10px 10px 14px;
       }
 
       .grid {
@@ -1839,15 +2014,15 @@
           <i class="bi bi-gear"></i>
           <div class="setting-flyout">
             <div class="setting-flyout-title">Setting</div>
-            <a href="{{ route('setting.profile') }}" class="setting-flyout-item">Profil Pengguna</a>
-            <a href="#" class="setting-flyout-item">Pengaturan Umum</a>
-            <a href="#" class="setting-flyout-item">Informasi Layanan</a>
-            <a href="#" class="setting-flyout-item">Pengaturan Laporan</a>
-            <a href="#" class="setting-flyout-item">Pengaturan Penggajian</a>
-            <a href="#" class="setting-flyout-item">Faktur Pembayaran</a>
-            <a href="#" class="setting-flyout-item">Hak Akses</a>
-            <a href="#" class="setting-flyout-item">Changelog</a>
-            <a href="#" class="setting-flyout-item">Keluar</a>
+            <a href="{{ route('setting.profile') }}" class="setting-flyout-item"><i class="bi bi-person-circle"></i> Profil Pengguna</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-pencil-square"></i> Pengaturan Umum</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-building"></i> Informasi Layanan</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-bookmark"></i> Pengaturan Laporan</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-cash-stack"></i> Pengaturan Penggajian</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-receipt"></i> Faktur Pembayaran</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-stars"></i> Hak Akses</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-info-circle"></i> Changelog</a>
+            <a href="#" class="setting-flyout-item"><i class="bi bi-box-arrow-right"></i> Keluar</a>
           </div>
         </div>
 
