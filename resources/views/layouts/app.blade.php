@@ -1605,8 +1605,8 @@
           <div class="nav-submenu-title">Karyawan</div>
           <a href="#" class="nav-sub-item">Daftar Karyawan</a>
           <a href="#" class="nav-sub-item">Pengguna App Karyawan</a>
-          <a href="{{ route('karyawan.kkbk') }}" class="nav-sub-item">Karyawan Kerja di Beberapa Kantor</a>
-          <a href="{{ route('karyawan.kkbkapa') }}" class="nav-sub-item">Karyawan Kerja di Beberapa Kantor sebagai Admin Perangkat Absensi</a>
+          <a href="{{ route('karyawan.karyawan-dibeberapa-kantor') }}" class="nav-sub-item">Karyawan Kerja di Beberapa Kantor</a>
+          <a href="{{ route('karyawan.karyawan-dibeberapa-kantor-sebagai-admin') }}" class="nav-sub-item">Karyawan Kerja di Beberapa Kantor sebagai Admin Perangkat Absensi</a>
           <a href="#" class="nav-sub-item">Absensi Tidak Ditampilkan</a>
           <a href="#" class="nav-sub-item">Karyawan Resign</a>
         </div>

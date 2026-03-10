@@ -24,8 +24,8 @@ Route::prefix('organisasi')->name('organisasi.')->group(function () {
 
 // Karyawan
 Route::prefix('karyawan')->name('karyawan.')->group(function () {
-    Route::get('/kkbk', fn() => view('karyawan.kkbk'))->name('kkbk');
-    Route::get('/kkbkapa', fn() => view('karyawan.kkbkapa'))->name('kkbkapa');
+    Route::get('/karyawan-dibeberapa-kantor', fn() => view('karyawan.karyawan-dibeberapa-kantor'))->name('karyawan-dibeberapa-kantor');
+    Route::get('/karyawan-dibeberapa-kantor-sebagai-admin', fn() => view('karyawan.karyawan-dibeberapa-kantor-sebagai-admin'))->name('karyawan-dibeberapa-kantor-sebagai-admin');
 });
 
 

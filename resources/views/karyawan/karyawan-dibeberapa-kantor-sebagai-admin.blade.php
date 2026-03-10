@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Semua Kantor / Karyawan Kerja Di Beberapa Kantor')
+@section('title', 'Semua Kantor / Karyawan Kerja Di Beberapa Kantor sebagai Admin Perangkat Absensi')
 
 @section('content')
 
@@ -48,7 +48,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #1f2937;
+  background: #16c433f1;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -60,7 +60,7 @@ body {
   transition: background 0.2s;
 }
 
-.btn-add:hover { background: #111827; }
+.btn-add:hover { background: #139929f1; }
 
 .btn-add i { font-size: 13px; }
 
@@ -257,7 +257,6 @@ body {
   font-weight: 700;
   color: #1a9de0;
   text-transform: uppercase;
-  letter-spacing: 0;
 }
 .name-cell img.img-error + .avatar-fallback { display: flex; }
 
@@ -275,12 +274,12 @@ body {
   min-width: 130px;
 }
 
-/* Kantor Lainnya */
-.kantor-lainnya {
+/* Admin Device Badge */
+.admin-device-col {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
-  min-width: 300px;
+  min-width: 200px;
 }
 
 /* ──── BADGE ──── */
@@ -293,7 +292,7 @@ body {
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
-  background: #2563eb;
+  background: #1a70e0;
   color: #fff;
   letter-spacing: 0.01em;
 }
@@ -323,40 +322,119 @@ body {
 .pagination {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pg-btn {
-  min-width: 30px;
-  height: 30px;
-  border: 1px solid #e5e7eb;
+  min-width: 90px;
+  height: 40px;
+  border: 1px solid #d1d5db;
   background: #fff;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   color: #6b7280;
   font-weight: 600;
-  transition: all 0.15s;
+  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 6px;
+  padding: 0 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.pg-btn:hover { background: #f3f4f6; }
-.pg-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.pg-btn:not(.active) {
+  min-width: 90px;
+}
 
-/* ──── RESPONSIVE ──── */
+.pg-btn.active {
+  min-width: 40px;
+}
+
+.pg-btn:hover:not(.active) { 
+  background: #f3f4f6;
+  border-color: #bfdbfe;
+}
+
+.pg-btn:active:not(.active) {
+  transform: scale(0.98);
+}
+
+.pg-btn.active { 
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
 @media (max-width: 768px) {
-  .data-table thead th:nth-child(4),
-  .data-table tbody td:nth-child(4) { display: none; }
-  .kantor-lainnya { min-width: 180px; }
+  .pagination {
+    gap: 10px;
+  }
+  
+  .pg-btn {
+    min-width: 85px;
+    height: 38px;
+    font-size: 12px;
+    padding: 0 14px;
+  }
+
+  .pg-btn:not(.active) {
+    min-width: 85px;
+  }
+
+  .pg-btn.active {
+    min-width: 38px;
+  }
 }
 
 @media (max-width: 480px) {
+  .pagination {
+    gap: 8px;
+  }
+  
+  .pg-btn {
+    min-width: 80px;
+    height: 36px;
+    font-size: 11px;
+    padding: 0 12px;
+  }
+
+  .pg-btn:not(.active) {
+    min-width: 80px;
+  }
+
+  .pg-btn.active {
+    min-width: 36px;
+  }
+}
+
+/* ──── RESPONSIVE ──── */
+@media (max-width: 1024px) {
+  .data-table thead th:nth-child(4),
+  .data-table tbody td:nth-child(4) { display: none; }
+  .admin-device-col { min-width: 150px; }
+}
+
+@media (max-width: 768px) {
   .data-table thead th:nth-child(5),
   .data-table tbody td:nth-child(5) { display: none; }
   .badge { font-size: 10px; padding: 3px 7px; }
+  .search-bar input { width: 140px; }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb-bar { flex-direction: column; align-items: flex-start; }
+  .data-table thead th:nth-child(4),
+  .data-table tbody td:nth-child(4) { display: none; }
+  .badge { font-size: 9px; padding: 2px 6px; }
+  .search-bar input { width: 100px; }
+  .show-entries select { font-size: 11px; padding: 3px 6px; }
+  .btn-add { font-size: 11px; padding: 6px 10px; }
 }
 </style>
 
@@ -367,15 +445,15 @@ body {
     &nbsp;/&nbsp;
     <span>SEMUA KANTOR</span>
     &nbsp;/&nbsp;
-    <span class="active">KARYAWAN KERJA DI BEBERAPA KANTOR</span>
+    <span class="active">KARYAWAN KERJA DI BEBERAPA KANTOR SEBAGAI ADMIN PERANGKAT ABSENSI</span>
   </div>
-  <div class="breadcrumb-right">
+  <!-- <div class="breadcrumb-right">
     <button class="btn-add">
       <i class="bi bi-download"></i>
-      Tambah Karyawan Kerja di Banyak Kantor
+      Tambah Karyawan Admin Absensi
     </button>
     <button class="btn-fav"><i class="bi bi-star"></i></button>
-  </div>
+  </div> -->
 </div>
 
 <!-- ──── CARD ──── -->
@@ -409,112 +487,102 @@ body {
           <th>NAMA <span class="sort-icon">▲▼</span></th>
           <th>JABATAN <span class="sort-icon">▲▼</span></th>
           <th>KANTOR ASAL <span class="sort-icon">▲▼</span></th>
-          <th>KANTOR LAINNYA <span class="sort-icon">▲▼</span></th>
+          <th>ADMIN PERANGKAT ABSENSI DI KANTOR <span class="sort-icon">▲▼</span></th>
         </tr>
       </thead>
       <tbody id="tableBody">
         <!-- Row 1 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100003</td>
+          <td>100001</td>
           <td>
             <div class="name-cell">
-              <img src="{{ asset('images/upin.png') }}" alt="Upin" onerror="this.classList.add('img-error')">
-              <div class="avatar-fallback">H</div>
-              <span>Himawan</span>
+              <img src="{{ asset('images/upin.png') }}" alt="Ferley" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">A</div>
+              <span>Arab</span>
             </div>
           </td>
-          <td>ADMIN</td>
-          <td>FINGERSPOT - BCD</td>
+          <td>DIREKTUR</td>
+          <td>FINGERSPOT - DENPASAR</td>
           <td>
-            <div class="kantor-lainnya">
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCD</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BAD</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - KTI</span>
+            <div class="admin-device-col">
+              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - DENPASAR</span>
             </div>
           </td>
         </tr>
         <!-- Row 2 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100004</td>
+          <td>100002</td>
           <td>
             <div class="name-cell">
-              <img src="{{ asset('images/ipin.png') }}" alt="Ipin" onerror="this.classList.add('img-error')">
-              <div class="avatar-fallback">H</div>
-              <span>Halim</span>
+              <img src="{{ asset('images/ipin.png') }}" alt="D_K" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">M</div>
+              <span>Mangu</span>
             </div>
           </td>
-          <td>TEKNISI</td>
-          <td>FINGERSPOT - BCD</td>
+          <td>MARKETING DENPASAR</td>
+          <td>FINGERSPOT - DENPASAR</td>
           <td>
-            <div class="kantor-lainnya">
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCD</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BDB</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - KTI</span>
+            <div class="admin-device-col">
+              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - DENPASAR</span>
             </div>
           </td>
         </tr>
         <!-- Row 3 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100005</td>
+          <td>100004</td>
           <td>
             <div class="name-cell">
-              <img src="{{ asset('images/ehsan.png') }}" alt="Ehsan" onerror="this.classList.add('img-error')">
-              <div class="avatar-fallback">R</div>
-              <span>Ridho</span>
+              <img src="{{ asset('images/ehsan.png') }}" alt="Lufin" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">S</div>
+              <span>Simawan</span>
             </div>
           </td>
-          <td>SALES</td>
-          <td>FINGERSPOT - BCD</td>
+          <td>TEKNISI DENPASAR</td>
+          <td>FINGERSPOT - DENPASAR</td>
           <td>
-            <div class="kantor-lainnya">
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCD</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BAB</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCA</span>
+            <div class="admin-device-col">
+              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - DENPASAR</span>
             </div>
           </td>
         </tr>
         <!-- Row 4 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100007</td>
+          <td>100005</td>
           <td>
             <div class="name-cell">
-              <img src="{{ asset('images/fizi.png') }}" alt="Fizi" onerror="this.classList.add('img-error')">
-              <div class="avatar-fallback">X</div>
-              <span>Xavier</span>
+              <img src="{{ asset('images/fizi.png') }}" alt="Myla" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">G</div>
+              <span>Gibran</span>
             </div>
           </td>
-          <td>TEKNISI</td>
+          <td>MARKETING BCD</td>
           <td>FINGERSPOT - BCD</td>
           <td>
-            <div class="kantor-lainnya">
+            <div class="admin-device-col">
               <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCD</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BDB</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCA</span>
             </div>
           </td>
         </tr>
         <!-- Row 5 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100008</td>
+          <td>100007</td>
           <td>
             <div class="name-cell">
-              <img src="{{ asset('images/jarjit.png') }}" alt="Jarjit" onerror="this.classList.add('img-error')">
-              <div class="avatar-fallback">S</div>
-              <span>Sasongko</span>
+              <img src="{{ asset('images/jarjit.png') }}" alt="Son" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">B</div>
+              <span>Bambang</span>
             </div>
           </td>
-          <td>ADMIN</td>
-          <td>FINGERSPOT - BAB</td>
+          <td>TEKNISI BCD</td>
+          <td>FINGERSPOT - BCD</td>
           <td>
-            <div class="kantor-lainnya">
+            <div class="admin-device-col">
               <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCD</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BAB</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - KTI</span>
             </div>
           </td>
         </tr>
@@ -524,60 +592,98 @@ body {
           <td>100009</td>
           <td>
             <div class="name-cell">
-              <img src="{{ asset('images/mail.png') }}" alt="Mail" onerror="this.classList.add('img-error')">
-              <div class="avatar-fallback">T</div>
-              <span>Tuman</span>
+              <img src="{{ asset('images/mail.png') }}" alt="Totti" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">J</div>
+              <span>Jevon</span>
             </div>
           </td>
-          <td>SALES</td>
-          <td>FINGERSPOT - BCA</td>
+          <td>MARKETING BCD</td>
+          <td>FINGERSPOT - BCD</td>
           <td>
-            <div class="kantor-lainnya">
+            <div class="admin-device-col">
               <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCD</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCA</span>
-              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCB</span>
             </div>
           </td>
         </tr>
-       
+        <!-- Row 7 -->
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>100014</td>
+          <td>
+            <div class="name-cell">
+              <img src="{{ asset('images/akmal.png') }}" alt="Vicious" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">Y</div>
+              <span>Yuka</span>
+            </div>
+          </td>
+          <td>SUPERVISOR BCD</td>
+          <td>FINGERSPOT - BCD</td>
+          <td>
+            <div class="admin-device-col">
+              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - BCD</span>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>100019</td>
+          <td>
+            <div class="name-cell">
+              <img src="{{ asset('images/upin.png') }}" alt="Varel" onerror="this.classList.add('img-error')">
+              <div class="avatar-fallback">A</div>
+              <span>Alex</span>
+            </div>
+          </td>
+          <td>MARKETING DENPASAR</td>
+          <td>FINGERSPOT - DENPASAR</td>
+          <td>
+            <div class="admin-device-col">
+              <span class="badge"><i class="bi bi-building"></i> FINGERSPOT - DENPASAR</span>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
 
   <!-- BOTTOM BAR -->
   <div class="bottom-bar">
-    <div class="entries-info" id="entriesInfo">Showing 1 to 8 of 8 entries</div>
+    <div class="entries-info">Showing 1 to 8 of 8 entries</div>
     <div class="pagination">
-      <button class="pg-btn" id="prevBtn">&#8249;</button>
-      <button class="pg-btn active" id="page1Btn">1</button>
-      <button class="pg-btn" id="nextBtn">&#8250;</button>
+      <button class="pg-btn">Previous</button>
+      <button class="pg-btn active">1</button>
+      <button class="pg-btn">Next</button>
     </div>
   </div>
 
 </div>
 
 <script>
-// ──── CHECK ALL ────
-document.getElementById('checkAll').addEventListener('change', function() {
-  document.querySelectorAll('#tableBody input[type="checkbox"]').forEach(cb => {
-    cb.checked = this.checked;
+  // Search functionality
+  document.getElementById('searchInput').addEventListener('keyup', function() {
+    const searchTerm = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#tableBody tr');
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(searchTerm) ? '' : 'none';
+    });
   });
-});
 
-// ──── SEARCH ────
-document.getElementById('searchInput').addEventListener('input', function() {
-  const val = this.value.toLowerCase();
-  const rows = document.querySelectorAll('#tableBody tr');
-  let visible = 0;
-  rows.forEach(row => {
-    const text = row.innerText.toLowerCase();
-    const show = text.includes(val);
-    row.style.display = show ? '' : 'none';
-    if (show) visible++;
+  // Select all checkbox
+  document.getElementById('checkAll').addEventListener('change', function() {
+    const checkboxes = document.querySelectorAll('#tableBody input[type="checkbox"]');
+    checkboxes.forEach(cb => cb.checked = this.checked);
   });
-  document.getElementById('entriesInfo').textContent =
-    `Showing 1 to ${visible} of ${rows.length} entries`;
-});
+
+  // Items per page
+  document.getElementById('perPageSelect').addEventListener('change', function() {
+    const perPage = parseInt(this.value);
+    const rows = document.querySelectorAll('#tableBody tr');
+    rows.forEach((row, index) => {
+      row.style.display = index < perPage ? '' : 'none';
+    });
+  });
 </script>
 
 @endsection
