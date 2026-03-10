@@ -623,7 +623,7 @@
 
     @media (max-width:767px) {
       :root {
-        --sb-bg: #1a9de0;
+        --sb-bg: #1a70e0;
         --sb-text: rgba(255, 255, 255, .9);
         --sb-text-muted: rgba(255, 255, 255, .6);
         --sb-icon: rgba(255, 255, 255, .85);
@@ -689,6 +689,7 @@
       }
 
       .nav-submenu {
+        position: relative !important;
         left: auto !important;
         top: auto !important;
         width: 100% !important;
@@ -1878,22 +1879,30 @@
       });
     }
 
-    /* Pindahkan semua flyout submenu ke body agar tidak ter-clip sidebar */
+    /* Pindahkan semua flyout submenu ke body HANYA untuk non-mobile agar tidak ter-clip sidebar */
     document.querySelectorAll('.nav-submenu').forEach(function(sub) {
       var wrap = sub.closest('.nav-item-wrap');
       if (wrap) {
         sub.dataset.wrapId = 'wrap-' + Math.random().toString(36).slice(2);
         wrap.dataset.subId = sub.dataset.wrapId;
-        document.body.appendChild(sub);
+        /* Simpan referensi wrap di dataset sub */
+        sub.dataset.parentWrap = wrap.dataset.subId;
+        wrap._subEl = sub;
+        if (window.innerWidth >= 768) {
+          document.body.appendChild(sub);
+        }
       }
     });
 
     document.querySelectorAll('.nav-item-wrap').forEach(function(wrap) {
       var navItem = wrap.querySelector('.nav-item');
-      /* Cari sub dari body (sudah dipindahkan) */
+      /* Cari sub: dari body (desktop) atau dari wrap langsung (mobile) */
       var subId = wrap.dataset.subId;
       var sub = subId ? document.querySelector('[data-wrap-id="' + subId + '"]') : null;
       if (!sub || !navItem) return;
+      /* Simpan referensi untuk keperluan resize */
+      wrap._navSub = sub;
+      wrap._navItem = navItem;
 
       /* Update top position saat hover (desktop + tablet) */
       wrap.addEventListener('mouseenter', function() {
@@ -1977,6 +1986,26 @@
       if (window.innerWidth > 767) {
         sidebar.classList.remove('mob-open');
         overlay.classList.remove('active');
+        /* Pindahkan submenu ke body jika belum */
+        document.querySelectorAll('.nav-item-wrap').forEach(function(wrap) {
+          var sub = wrap._navSub;
+          if (sub && sub.parentElement !== document.body) {
+            sub.style.display = 'none';
+            sub.classList.remove('mob-open');
+            document.body.appendChild(sub);
+          }
+        });
+      } else {
+        /* Kembalikan submenu ke dalam wrap untuk mobile */
+        document.querySelectorAll('.nav-item-wrap').forEach(function(wrap) {
+          var sub = wrap._navSub;
+          if (sub && sub.parentElement === document.body) {
+            sub.style.display = '';
+            sub.style.top = '';
+            sub.classList.remove('mob-open');
+            wrap.appendChild(sub);
+          }
+        });
       }
     });
   </script>
