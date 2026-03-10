@@ -277,10 +277,10 @@
     .nav-sub-item {
       display: flex;
       align-items: center;
-      padding: 11px 22px;
+      padding: 13px 24px;
       color: rgba(255, 255, 255, .92);
       text-decoration: none;
-      font-size: 13px;
+      font-size: 14.5px;
       font-weight: 600;
       line-height: 1.4;
       border-bottom: 1px solid rgba(255, 255, 255, .12);
@@ -477,6 +477,23 @@
     }
 
     /* Mobile sidebar = blue, show icon row instead of full badges */
+    /* ── LARGE DESKTOP (≥1600px / 1920px): nav-sub-item lebih besar ── */
+    @media (min-width:1600px) {
+      .nav-sub-item {
+        padding: 15px 28px;
+        font-size: 15.5px;
+      }
+
+      .nav-submenu-title {
+        font-size: 20px;
+        padding: 20px 28px 12px;
+      }
+
+      .nav-submenu {
+        width: 290px;
+      }
+    }
+
     /* ── TABLET (768px–1023px): sidebar icon-only + flyout ── */
     @media (min-width:768px) and (max-width:1023px) {
 
@@ -618,6 +635,12 @@
 
       .sidebar-overlay {
         display: none !important;
+      }
+
+      /* nav-sub-item lebih besar di 768px tablet */
+      .nav-sub-item {
+        padding: 13px 22px;
+        font-size: 14px;
       }
     }
 

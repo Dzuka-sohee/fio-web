@@ -28,21 +28,15 @@ body {
 }
 
 .breadcrumb-text {
-  font-size: 11px;
+  font-size: 15px;
   color: #9ca3af;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.breadcrumb-text span {
-  color: #6b7280;
-}
-
-.breadcrumb-text .active {
-  color: #374151;
-  font-weight: 600;
-}
+.breadcrumb-text span { color: #6b7280; }
+.breadcrumb-text .active { color: #374151; font-weight: 600; }
 
 .btn-add {
   display: inline-flex;
@@ -52,32 +46,29 @@ body {
   color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 8px 14px;
-  font-size: 12px;
+  padding: 9px 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.2s;
 }
-
 .btn-add:hover { background: #139929f1; }
-
-.btn-add i { font-size: 13px; }
+.btn-add i { font-size: 15px; }
 
 .btn-fav {
   background: transparent;
   border: 1px solid #d1d5db;
   border-radius: 6px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: #9ca3af;
-  font-size: 14px;
+  font-size: 16px;
 }
-
 .btn-fav:hover { background: #f9fafb; }
 
 .breadcrumb-right {
@@ -94,12 +85,12 @@ body {
   overflow: hidden;
 }
 
-/* ──── TOP BAR (show + search) ──── */
+/* ──── TOP BAR ──── */
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 18px 22px;
   border-bottom: 1px solid #f0f0f0;
   flex-wrap: wrap;
   gap: 10px;
@@ -110,15 +101,15 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 16px;
   color: #6b7280;
 }
 
 .show-entries select {
   border: 1px solid #d1d5db;
   border-radius: 5px;
-  padding: 4px 8px;
-  font-size: 12px;
+  padding: 7px 12px;
+  font-size: 16px;
   color: #374151;
   background: #fff;
   cursor: pointer;
@@ -129,30 +120,27 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 16px;
   color: #6b7280;
 }
 
 .search-bar input {
   border: 1px solid #d1d5db;
   border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 12px;
+  padding: 8px 14px;
+  font-size: 16px;
   color: #374151;
   outline: none;
-  width: 180px;
+  width: 220px;
   transition: border-color 0.2s;
 }
-
-.search-bar input:focus {
-  border-color: #2563eb;
-}
+.search-bar input:focus { border-color: #2563eb; }
 
 /* ──── TABLE ──── */
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .data-table thead {
@@ -162,11 +150,11 @@ body {
 }
 
 .data-table thead th {
-  padding: 10px 14px;
+  padding: 16px 20px;
   text-align: left;
   font-weight: 700;
   color: #6b7280;
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -180,107 +168,109 @@ body {
   vertical-align: middle;
   line-height: 1;
   opacity: 0.4;
-  font-size: 8px;
+  font-size: 9px;
 }
 
 .data-table tbody tr {
   border-bottom: 1px solid #f0f0f0;
   transition: background-color 0.15s;
 }
-
-.data-table tbody tr:last-child {
-  border-bottom: none;
-}
-
-.data-table tbody tr:hover {
-  background-color: #f9fafb;
-}
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:hover { background-color: #f9fafb; }
 
 .data-table tbody td {
-  padding: 12px 14px;
+  padding: 18px 20px;
   color: #374151;
   vertical-align: middle;
-  font-size: 13px;
+  font-size: 17px;
 }
 
-/* Checkbox column */
+/* ──── CHECKBOX (col 1) ──── */
 .data-table th:first-child,
 .data-table td:first-child {
-  width: 40px;
+  width: 44px;
   padding-left: 16px;
   padding-right: 8px;
 }
 
 .data-table input[type="checkbox"] {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
   accent-color: #2563eb;
 }
 
-/* ID column */
+/* ──── FOTO (col 2) ──── */
+.data-table th:nth-child(2),
 .data-table td:nth-child(2) {
-  font-size: 13px;
-  color: #374151;
-  font-weight: 400;
-  min-width: 70px;
+  width: 72px;
+  padding-left: 8px;
+  padding-right: 10px;
+  text-align: center;
 }
 
-/* Name with avatar */
-.name-cell {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 130px;
+.avatar-wrap {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 52px;
 }
 
-.name-cell img {
-  width: 38px;
-  height: 38px;
+.avatar-wrap img {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
   border: 2px solid #e5e7eb;
+  display: block;
 }
-.name-cell img.img-error { display: none; }
+.avatar-wrap img.img-error { display: none; }
+
 .avatar-fallback {
   display: none;
-  width: 38px;
-  height: 38px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: #e0f0fb;
   border: 2px solid #e5e7eb;
-  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   color: #1a9de0;
   text-transform: uppercase;
-  letter-spacing: 0;
 }
-.name-cell img.img-error + .avatar-fallback { display: flex; }
+.avatar-wrap img.img-error + .avatar-fallback { display: flex; }
 
-.name-cell span {
-  font-weight: 500;
-  color: #1f2937;
-  font-size: 13px;
-}
-
-/* Jabatan & Kantor Asal */
-.data-table td:nth-child(4),
-.data-table td:nth-child(5) {
-  font-size: 12.5px;
+/* ──── ID (col 3) ──── */
+.data-table td:nth-child(3) {
+  font-size: 16px;
   color: #374151;
-  min-width: 130px;
+  font-weight: 400;
+  min-width: 90px;
 }
 
-/* Kantor Lainnya */
+/* ──── NAMA (col 4) ──── */
+.data-table td:nth-child(4) span {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 17px;
+}
+
+/* ──── JABATAN & KANTOR ASAL (col 5, 6) ──── */
+.data-table td:nth-child(5),
+.data-table td:nth-child(6) {
+  font-size: 16px;
+  color: #374151;
+  min-width: 155px;
+}
+
+/* ──── KANTOR LAINNYA ──── */
 .kantor-lainnya {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
-  min-width: 300px;
+  min-width: 320px;
 }
 
 /* ──── BADGE ──── */
@@ -288,75 +278,79 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 5px 10px;
+  padding: 8px 14px;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
   background: #2563eb;
   color: #fff;
   letter-spacing: 0.01em;
 }
+.badge i { font-size: 14px; opacity: 0.85; }
 
-.badge i {
-  font-size: 11px;
-  opacity: 0.85;
-}
-
-/* ──── BOTTOM BAR (pagination) ──── */
+/* ──── BOTTOM BAR ──── */
 .bottom-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 18px 22px;
   border-top: 1px solid #f0f0f0;
   background: #fff;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.entries-info {
-  font-size: 12px;
-  color: #6b7280;
-}
+.entries-info { font-size: 16px; color: #6b7280; }
 
 .pagination {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
 }
 
 .pg-btn {
-  min-width: 30px;
-  height: 30px;
+  min-width: 38px;
+  height: 38px;
   border: 1px solid #e5e7eb;
   background: #fff;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 15px;
   color: #6b7280;
   font-weight: 600;
   transition: all 0.15s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 6px;
+  padding: 0 10px;
 }
 
 .pg-btn:hover { background: #f3f4f6; }
 .pg-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
 /* ──── RESPONSIVE ──── */
+@media (max-width: 1024px) {
+  .data-table thead th:nth-child(5),
+  .data-table tbody td:nth-child(5) { display: none; }
+  .kantor-lainnya { min-width: 200px; }
+}
+
 @media (max-width: 768px) {
-  .data-table thead th:nth-child(4),
-  .data-table tbody td:nth-child(4) { display: none; }
-  .kantor-lainnya { min-width: 180px; }
+  .data-table thead th:nth-child(6),
+  .data-table tbody td:nth-child(6) { display: none; }
+  .badge { font-size: 12px; padding: 5px 9px; }
+  .search-bar input { width: 160px; }
+  .data-table { font-size: 15px; }
+  .data-table tbody td { font-size: 15px; }
 }
 
 @media (max-width: 480px) {
-  .data-table thead th:nth-child(5),
-  .data-table tbody td:nth-child(5) { display: none; }
-  .badge { font-size: 10px; padding: 3px 7px; }
+  .breadcrumb-bar { flex-direction: column; align-items: flex-start; }
+  .badge { font-size: 11px; padding: 4px 8px; }
+  .search-bar input { width: 120px; }
+  .show-entries select { font-size: 14px; }
+  .btn-add { font-size: 12px; padding: 7px 12px; }
 }
 </style>
 
@@ -405,6 +399,7 @@ body {
       <thead>
         <tr>
           <th><input type="checkbox" id="checkAll"></th>
+          <th></th>
           <th>ID <span class="sort-icon">▲▼</span></th>
           <th>NAMA <span class="sort-icon">▲▼</span></th>
           <th>JABATAN <span class="sort-icon">▲▼</span></th>
@@ -413,17 +408,18 @@ body {
         </tr>
       </thead>
       <tbody id="tableBody">
+
         <!-- Row 1 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100003</td>
           <td>
-            <div class="name-cell">
-              <img src="{{ asset('images/upin.png') }}" alt="Upin" onerror="this.classList.add('img-error')">
+            <div class="avatar-wrap">
+              <img src="{{ asset('images/upin.png') }}" alt="Himawan" onerror="this.classList.add('img-error')">
               <div class="avatar-fallback">H</div>
-              <span>Himawan</span>
             </div>
           </td>
+          <td>100003</td>
+          <td><span>Himawan</span></td>
           <td>ADMIN</td>
           <td>FINGERSPOT - BCD</td>
           <td>
@@ -434,17 +430,18 @@ body {
             </div>
           </td>
         </tr>
+
         <!-- Row 2 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100004</td>
           <td>
-            <div class="name-cell">
-              <img src="{{ asset('images/ipin.png') }}" alt="Ipin" onerror="this.classList.add('img-error')">
+            <div class="avatar-wrap">
+              <img src="{{ asset('images/ipin.png') }}" alt="Halim" onerror="this.classList.add('img-error')">
               <div class="avatar-fallback">H</div>
-              <span>Halim</span>
             </div>
           </td>
+          <td>100004</td>
+          <td><span>Halim</span></td>
           <td>TEKNISI</td>
           <td>FINGERSPOT - BCD</td>
           <td>
@@ -455,17 +452,18 @@ body {
             </div>
           </td>
         </tr>
+
         <!-- Row 3 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100005</td>
           <td>
-            <div class="name-cell">
-              <img src="{{ asset('images/ehsan.png') }}" alt="Ehsan" onerror="this.classList.add('img-error')">
+            <div class="avatar-wrap">
+              <img src="{{ asset('images/ehsan.png') }}" alt="Ridho" onerror="this.classList.add('img-error')">
               <div class="avatar-fallback">R</div>
-              <span>Ridho</span>
             </div>
           </td>
+          <td>100005</td>
+          <td><span>Ridho</span></td>
           <td>SALES</td>
           <td>FINGERSPOT - BCD</td>
           <td>
@@ -476,17 +474,18 @@ body {
             </div>
           </td>
         </tr>
+
         <!-- Row 4 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100007</td>
           <td>
-            <div class="name-cell">
-              <img src="{{ asset('images/fizi.png') }}" alt="Fizi" onerror="this.classList.add('img-error')">
+            <div class="avatar-wrap">
+              <img src="{{ asset('images/fizi.png') }}" alt="Xavier" onerror="this.classList.add('img-error')">
               <div class="avatar-fallback">X</div>
-              <span>Xavier</span>
             </div>
           </td>
+          <td>100007</td>
+          <td><span>Xavier</span></td>
           <td>TEKNISI</td>
           <td>FINGERSPOT - BCD</td>
           <td>
@@ -497,17 +496,18 @@ body {
             </div>
           </td>
         </tr>
+
         <!-- Row 5 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100008</td>
           <td>
-            <div class="name-cell">
-              <img src="{{ asset('images/jarjit.png') }}" alt="Jarjit" onerror="this.classList.add('img-error')">
+            <div class="avatar-wrap">
+              <img src="{{ asset('images/jarjit.png') }}" alt="Sasongko" onerror="this.classList.add('img-error')">
               <div class="avatar-fallback">S</div>
-              <span>Sasongko</span>
             </div>
           </td>
+          <td>100008</td>
+          <td><span>Sasongko</span></td>
           <td>ADMIN</td>
           <td>FINGERSPOT - BAB</td>
           <td>
@@ -518,17 +518,18 @@ body {
             </div>
           </td>
         </tr>
+
         <!-- Row 6 -->
         <tr>
           <td><input type="checkbox"></td>
-          <td>100009</td>
           <td>
-            <div class="name-cell">
-              <img src="{{ asset('images/mail.png') }}" alt="Mail" onerror="this.classList.add('img-error')">
+            <div class="avatar-wrap">
+              <img src="{{ asset('images/mail.png') }}" alt="Tuman" onerror="this.classList.add('img-error')">
               <div class="avatar-fallback">T</div>
-              <span>Tuman</span>
             </div>
           </td>
+          <td>100009</td>
+          <td><span>Tuman</span></td>
           <td>SALES</td>
           <td>FINGERSPOT - BCA</td>
           <td>
@@ -539,14 +540,14 @@ body {
             </div>
           </td>
         </tr>
-       
+
       </tbody>
     </table>
   </div>
 
   <!-- BOTTOM BAR -->
   <div class="bottom-bar">
-    <div class="entries-info" id="entriesInfo">Showing 1 to 8 of 8 entries</div>
+    <div class="entries-info" id="entriesInfo">Showing 1 to 6 of 6 entries</div>
     <div class="pagination">
       <button class="pg-btn" id="prevBtn">&#8249;</button>
       <button class="pg-btn active" id="page1Btn">1</button>
@@ -577,6 +578,15 @@ document.getElementById('searchInput').addEventListener('input', function() {
   });
   document.getElementById('entriesInfo').textContent =
     `Showing 1 to ${visible} of ${rows.length} entries`;
+});
+
+// ──── PER PAGE ────
+document.getElementById('perPageSelect').addEventListener('change', function() {
+  const perPage = parseInt(this.value);
+  const rows = document.querySelectorAll('#tableBody tr');
+  rows.forEach((row, index) => {
+    row.style.display = index < perPage ? '' : 'none';
+  });
 });
 </script>
 
