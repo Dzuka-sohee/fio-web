@@ -1820,7 +1820,7 @@
           <div class="nav-submenu-title">Kantor</div>
           <a href="#" class="nav-sub-item">Daftar Kantor</a>
           <a href="#" class="nav-sub-item">Daftar Spot</a>
-          <a href="#" class="nav-sub-item">Admin Perangkat Absensi</a>
+          <a href="{{ route('kantor.admin-perangkat-absensi') }}" class="nav-sub-item">Admin Perangkat Absensi</a>
           <a href="#" class="nav-sub-item">Tidak Ada Admin Perangkat Absensi</a>
           <a href="#" class="nav-sub-item">Akses Pintu</a>
         </div>

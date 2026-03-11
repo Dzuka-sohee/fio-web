@@ -28,6 +28,10 @@ Route::prefix('karyawan')->name('karyawan.')->group(function () {
     Route::get('/karyawan-dibeberapa-kantor-sebagai-admin', fn() => view('karyawan.karyawan-dibeberapa-kantor-sebagai-admin'))->name('karyawan-dibeberapa-kantor-sebagai-admin');
 });
 
+Route::prefix('kantor')->name('kantor.')->group(function () {
+    Route::get('/admin-perangkat-absensi', fn() => view('kantor.admin-perangkat-absensi'))->name('admin-perangkat-absensi');
+});
+
 
 // Absensi
 Route::get('/absensi', fn() => view('absensi.index'))->name('absensi.index');
