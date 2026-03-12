@@ -185,21 +185,6 @@ body {
   font-size: 17px;
 }
 
-/* ──── CHECKBOX (col 1) ──── */
-.data-table th:first-child,
-.data-table td:first-child {
-  width: 44px;
-  padding-left: 16px;
-  padding-right: 8px;
-}
-
-.data-table input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: #2563eb;
-}
-
 /* ──── FOTO (col 2) ──── */
 .data-table th:nth-child(2),
 .data-table td:nth-child(2) {
@@ -391,7 +376,6 @@ body {
   .data-table tbody td { padding: 8px 6px; font-size: 11px; }
   .data-table th:first-child,
   .data-table td:first-child { width: 28px; padding-left: 6px; padding-right: 4px; }
-  .data-table input[type="checkbox"] { width: 13px; height: 13px; }
 
   /* Avatar */
   .data-table th:nth-child(2),
@@ -454,7 +438,6 @@ body {
     <table class="data-table" id="mainTable">
       <thead>
         <tr>
-          <th><input type="checkbox" id="checkAll"></th>
           <th></th>
           <th>ID <span class="sort-icon">▲▼</span></th>
           <th>NAMA <span class="sort-icon">▲▼</span></th>
@@ -467,7 +450,6 @@ body {
 
         <!-- Row 1 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/upin.jpg') }}" alt="Arab" onerror="this.classList.add('img-error')">
@@ -487,7 +469,6 @@ body {
 
         <!-- Row 2 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/ipin.png') }}" alt="Mangu" onerror="this.classList.add('img-error')">
@@ -507,7 +488,6 @@ body {
 
         <!-- Row 3 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/ehsan.png') }}" alt="Simawan" onerror="this.classList.add('img-error')">
@@ -527,7 +507,6 @@ body {
 
         <!-- Row 4 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/fizi.png') }}" alt="Gibran" onerror="this.classList.add('img-error')">
@@ -547,7 +526,6 @@ body {
 
         <!-- Row 5 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/jarjit.png') }}" alt="Bambang" onerror="this.classList.add('img-error')">
@@ -567,7 +545,6 @@ body {
 
         <!-- Row 6 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/mail.png') }}" alt="Jevon" onerror="this.classList.add('img-error')">
@@ -587,7 +564,6 @@ body {
 
         <!-- Row 7 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/akmal.png') }}" alt="Yuka" onerror="this.classList.add('img-error')">
@@ -607,7 +583,6 @@ body {
 
         <!-- Row 8 -->
         <tr>
-          <td><input type="checkbox"></td>
           <td>
             <div class="avatar-wrap">
               <img src="{{ asset('images/upin.png') }}" alt="Alex" onerror="this.classList.add('img-error')">
@@ -650,12 +625,6 @@ body {
       const text = row.textContent.toLowerCase();
       row.style.display = text.includes(searchTerm) ? '' : 'none';
     });
-  });
-
-  // Select all checkbox
-  document.getElementById('checkAll').addEventListener('change', function() {
-    const checkboxes = document.querySelectorAll('#tableBody input[type="checkbox"]');
-    checkboxes.forEach(cb => cb.checked = this.checked);
   });
 
   // Items per page
